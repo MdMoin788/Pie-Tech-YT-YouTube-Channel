@@ -1,11 +1,11 @@
 import React from 'react'
 
-const React = () => {
+const Home = () => {
   return (
     <div>
-      day-1
+      
     </div>
   )
 }
 
-export default React
+export default Home

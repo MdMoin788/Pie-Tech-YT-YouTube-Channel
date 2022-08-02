@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>useState()</title>
+</head>
+<!-- -------------------Body -------------------------------------------- -->
+<body>
+    Welcome to React ( Lecture- 04 ) React Getting Started
+    <br>
+    <br>
+    <input type="text" id="email">
+    <input type="text" id="password">
+    <button onclick="showData()">Show Data</button>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="root"></div>
+
+</body>
+</html>
+<!-- -------------------script means to write js code  -------------------------------------------- -->
+<script>
+    let root = document.getElementById("root")
+
+
+    let arr = []
+
+    function showData() {
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+        let user = {
+            email: email,
+            password: password
+        }
+        console.log('user', user);
+        arr.push(user)
+        console.log('arr', arr);
+        localStorage.setItem("data", JSON.stringify(arr))        //
+
+
+        showFunct()
+    }
+
+
+
+
+    function showFunct() {
+
+        let data = JSON.parse(localStorage.getItem("data")) 
+        
+        data.map((ele) => {
+            let div = document.createElement("div")
+            let email = document.createElement("p")
+            email.innerHTML = ele.email
+            let password = document.createElement("p")
+            password.innerHTML = ele.password
+            div.append(email, password)
+            root.append(div)
+        })
+
+    }
+
+useState()
+
+
+</script>
+<!-- Step 1 
+// get Input data by taking id for  refrence 
+// store into a variable means declare a variable 
+// create an object
+// store object one by one into an array
+Step - 2
+// send arr to local storage 
+step - 3
+// get back data from local storage
+// finally show all data into UI -->
